@@ -96,13 +96,13 @@ Using `HTMLTableElement.rows`, you'd only get the `X`, which make it difficult t
 If the optional `alwaysInterpretZeroRowSpan` argument is set to `true`, the matrix will interpret `rowspan="0"` (which is part of the HTML5 standard) even if the browser don't support it. By default, this argument is set to `false` (`rowspan="0"` will only be interpreted if it is supported by the browser). (Note that `rowspan=0` is not supported for all methods of this utility).
 
 #### Table.merge(NodeList||Array cells, Optional Function callback)
-Merge the `cells` <TD> or <TH> cells. Whenever cells  are about to be merged, `callback` is called with four arguments : the first is the future value of the colspan attribute, the second is the future value of the rowspan attribute, the third is the cell that will be kept and the fourth is an `Array` of cells that will be removed.
+Merge all `HTMLTableCellElement` in `cells`. Whenever cells  are about to be merged, `callback` is called with four arguments : the first is the future value of the colspan attribute, the second is the future value of the rowspan attribute, the third is the cell that will be kept and the fourth is an `Array` of cells that will be removed.
 
 #### Table.mergeHorizontal(NodeList||Array cells, Optional Function callback)
-Merge horizontally the `cells` <TD> or <TH> cells. Whenever cells are about to be merged, `callback` is called with four arguments : the first is the future value of the colspan attribute, the second is the future value of the rowspan attribute, the third is the cell that will be kept and the fourth is an `Array` of cells that will be removed.
+Merge horizontally all `HTMLTableCellElement` in `cells`. Whenever cells are about to be merged, `callback` is called with four arguments : the first is the future value of the colspan attribute, the second is the future value of the rowspan attribute, the third is the cell that will be kept and the fourth is an `Array` of cells that will be removed.
 
 #### Table.mergeVertical(NodeList||Array cells, Optional Function callback)
-Merge vertically the `cells` <TD> or <TH> cells.  Whenever cells are about to be merged, `callback` is called with four arguments : the first is the future value of the colspan attribute, the second is the future value of the rowspan attribute, the third is the cell that will be kept and the fourth is an `Array` of cells that will be removed.
+Merge vertically all `HTMLTableCellElement` in `cells`.  Whenever cells are about to be merged, `callback` is called with four arguments : the first is the future value of the colspan attribute, the second is the future value of the rowspan attribute, the third is the cell that will be kept and the fourth is an `Array` of cells that will be removed.
 
 #### Table.position(HTMLTableCellElement cell, Optional Matrix matrix)
 
