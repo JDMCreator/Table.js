@@ -456,9 +456,8 @@ Table = function(table){
 				finalRowSpan = cell.rowSpan;
 				if(this.isAChildCell(cell)){
 					var pos = this.position(cell, matrix);
-					console.dir(pos);
 					if(!pos){continue;}
-					for(j=pos.y+cell.rowSpan;j<matrix.length;j++){
+					for(var j=pos.y+cell.rowSpan;j<matrix.length;j++){
 						var nextgroup = [], subheight=0,subrow=matrix[j], sublength=0;
 						for(var h=pos.x;h<subrow.length;h++){
 							var subcell = subrow[h].cell;
@@ -519,7 +518,7 @@ Table = function(table){
 					var pos = this.position(cell, matrix);
 					if(!pos){continue;}
 					var subrow=matrix[pos.y]
-					for(j=pos.x+cell.colSpan, l2=subrow.length;j<l2;j++){
+					for(var j=pos.x+cell.colSpan, l2=subrow.length;j<l2;j++){
 						var nextgroup = [], sublength=0, subheight=0;
 						for(var h=pos.y;h<matrix.length;h++){
 							var subcell = matrix[h][j].cell;
@@ -740,8 +739,8 @@ Table.rowSpan = function(cell){
 }
 Table.maxIteration = 50;
 Table.cache = true;
-Table.build = 1;
-Table.version = "0.1"
+Table.build = 2;
+Table.version = "0.1.1"
 Table.stable = false;
 window.Table = Table;
 })();

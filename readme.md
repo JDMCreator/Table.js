@@ -1,6 +1,6 @@
 # Table.js
 
-**Table.js** let you manipulate complex tables with Javascript. Version 0.1 alpha.
+**Table.js** let you manipulate complex tables with Javascript. Version 0.1.1 alpha.
 
 ### About tables and cells
 
