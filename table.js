@@ -619,9 +619,9 @@ Table = function(table){
 								for(var l=0;l<cell.colSpan;l++){
 									// I hate four-level loops
 									if(!(k===0 && l===0)){
-										o = rg[i+k][realCol+l]={refCell:o, x:realCol+l, y:i+k}
+										var o2 = rg[i+k][realCol+l]={refCell:o, x:realCol+l, y:i+k}
 										if(rowSpan === 0){
-											expandCells.push(o);
+											expandCells.push(o2);
 										}
 									}
 								}
@@ -739,8 +739,8 @@ Table.rowSpan = function(cell){
 }
 Table.maxIteration = 50;
 Table.cache = true;
-Table.build = 2;
-Table.version = "0.1.1"
+Table.build = 3;
+Table.version = "0.1.2"
 Table.stable = false;
 window.Table = Table;
 })();
