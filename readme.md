@@ -1,6 +1,8 @@
 # Table.js
 
-**Table.js** let you manipulate complex tables with Javascript. Version 0.1.3 alpha.
+**Table.js** let you manipulate complex tables with Javascript. Version 0.2.
+
+See [examples online](http://www.latex-tables.com/projects/TableJS/).
 
 ### About tables and cells
 
@@ -16,7 +18,7 @@ var mytable = new Table(document.querySelector("#table"));
 
 #### Table.cell(Number x, Number y, Optional Matrix matrix)
 
-Returns the cell at **absolute** position `[x,y]`. Negative numbers start at the end (i.e. `[-1,-1]` is the last cell from the last row). To access a cell at **relative** position `[x,y]`, use `mytable.element.rows[y].cells[x]`.
+Returns the cell at **absolute** position `[x,y]`. Negative numbers start at the end (i.e. `[-1,-1]` is the last cell from the last row). To access a cell at **relative** position `[x,y]`, use `mytable.rel(x,y)`.
 #### Table.cells(String selector)
 #### Table.cells(Array XYOriginPosition, String selector)
 #### Table.cells(HTMLTableCellElement origin, String selector)
@@ -104,6 +106,9 @@ Merge horizontally all `HTMLTableCellElement` in `cells`. Whenever cells are abo
 #### Table.mergeVertical(NodeList||Array cells, Optional Function callback)
 Merge vertically all `HTMLTableCellElement` in `cells`.  Whenever cells are about to be merged, `callback` is called with four arguments : the first is the future value of the colspan attribute, the second is the future value of the rowspan attribute, the third is the cell that will be kept and the fourth is an `Array` of cells that will be removed.
 
+#### Table.normalize(Optional Matrix matrix)
+Normalize the table and returns a boolean value that indicates if the table was modified. `rowspan` and `colspan` attributes are reduced to a minimal value, empty rows are removed and the `colspan` attribute of the last cell of each row is expanded if there are missing cells in the row. 
+
 #### Table.position(HTMLTableCellElement cell, Optional Matrix matrix)
 
 Returns the cell real position inside the table as an `{x:x, y:y}` Object. If `matrix` is not specified, a matrix of the table will be calculated via `Table.matrix()` which uses a lot of ressources. If you have a lot of cells' positions to calculate, you should cache the matrix.
@@ -113,6 +118,9 @@ var matrix = mytable.matrix(),
     position = mytable.position(mycell, matrix);
 console.log("Position : (" + position.x + "," + position.y + ")");
 ```
+
+#### Table.rel(Number x, Number y)
+Returns the cell found at the relative position `[x,y]`.
 
 #### Table.removeCol(Optional Number position)
 
@@ -187,10 +195,8 @@ Please report any bugs by creating an issue. Same for feature requests. This is 
 
 ### To-Do
 
-* Create a function to normalize tables (remove empty rows, fix colspan and rowspan attributes...)
 * Fix bugs
 * Improve speed
-* Go in beta
 * Support `<COL>`, `<CAPTION>` and `<COLGROUP>` elements
 * Management of `<THEAD>`, `<TBODY>` and `TFOOT` elements
 
